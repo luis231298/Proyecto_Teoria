@@ -143,6 +143,7 @@ int main()
 	// -----------
 	Model piso("resources/objects/piso/piso.obj");
 	Model carro("resources/objects/lambo/carroceria.obj");
+	Model buzon("resources/objects/Buzon/buzon.obj");
 
 	// draw in wireframe
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -176,16 +177,16 @@ int main()
 		staticShader.setVec3("viewPos", camera.Position);
 		staticShader.setVec3("dirLight.direction", lightDirection);
 		staticShader.setVec3("dirLight.ambient", glm::vec3(0.0f, 0.0f, 0.0f));
-		staticShader.setVec3("dirLight.diffuse", glm::vec3(0.0f, 0.0f, 0.0f));
+		staticShader.setVec3("dirLight.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setVec3("dirLight.specular", glm::vec3(0.0f, 0.0f, 0.0f));
 
 		staticShader.setVec3("pointLight[0].position", lightPosition);
-		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.3f, 0.3f, 0.3f));
 		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 0.0f));
-		staticShader.setFloat("pointLight[0].constant", 0.8f);
-		staticShader.setFloat("pointLight[0].linear", 0.009f);
-		staticShader.setFloat("pointLight[0].quadratic", 0.032f);
+		staticShader.setFloat("pointLight[0].constant", 0.8f);//intensidad de la luz
+		staticShader.setFloat("pointLight[0].linear", 0.009f);//cuanto viaja la luz
+		staticShader.setFloat("pointLight[0].quadratic", 0.032f);//cuanto viaja la luz
 
 		staticShader.setVec3("pointLight[1].position", glm::vec3(0.0, 0.0f, 0.0f));
 		staticShader.setVec3("pointLight[1].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
@@ -232,11 +233,12 @@ int main()
 		piso.Draw(staticShader);
 
 		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::translate(model, glm::vec3(15.0f, -1.75f, movAuto_z));
+		model = glm::translate(model, glm::vec3(15.0f, -1.65f, movAuto_z));
 		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
 		//model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
 		staticShader.setMat4("model", model);
-		carro.Draw(staticShader);
+		buzon.Draw(staticShader);
+		//carro.Draw(staticShader);
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Termina Escenario
 		// -------------------------------------------------------------------------------------------------------------------------
