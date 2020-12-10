@@ -233,7 +233,7 @@ int main()
 		piso.Draw(staticShader);
 
 		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::translate(model, glm::vec3(15.0f, -1.65f, movAuto_z));
+		model = glm::translate(model, glm::vec3(15.0f, -1.5f, movAuto_z));
 		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
 		//model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
 		staticShader.setMat4("model", model);
