@@ -1,5 +1,5 @@
 # 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
-# File Created: 29.12.2020 15:44:07
+# File Created: 19.01.2021 12:43:16
 
 newmtl 03___Default
 	Ns 10.0000
@@ -12,36 +12,8 @@ newmtl 03___Default
 	Kd 0.6902 0.9176 0.0000
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka amarillo.jpg
-	map_Kd amarillo.jpg
-
-newmtl Material__110
-	Ns 10.0000
-	Ni 1.5000
-	d 1.0000
-	Tr 0.0000
-	Tf 1.0000 1.0000 1.0000 
-	illum 2
-	Ka 0.5880 0.5880 0.5880
-	Kd 0.5880 0.5880 0.5880
-	Ks 0.0000 0.0000 0.0000
-	Ke 0.0000 0.0000 0.0000
-	map_Ka rojo.jpg
-	map_Kd rojo.jpg
-
-newmtl Material__108
-	Ns 10.0000
-	Ni 1.5000
-	d 1.0000
-	Tr 0.0000
-	Tf 1.0000 1.0000 1.0000 
-	illum 2
-	Ka 0.5880 0.5880 0.5880
-	Kd 0.5880 0.5880 0.5880
-	Ks 0.0000 0.0000 0.0000
-	Ke 0.0000 0.0000 0.0000
-	map_Ka azul.jpg
-	map_Kd azul.jpg
+	map_Ka maps\amarillo.jpg
+	map_Kd maps\amarillo.jpg
 
 newmtl 02___Default
 	Ns 10.0000
@@ -54,19 +26,15 @@ newmtl 02___Default
 	Kd 0.1137 0.5882 0.0196
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka rojo.jpg
-	map_Kd rojo.jpg
+	map_Ka maps\rojo.jpg
+	map_Kd maps\rojo.jpg
 
-newmtl 01___Default
-	Ns 16.0000
-	Ni 1.5000
-	d 0.6000
-	Tr 0.4000
-	Tf 0.6000 0.6000 0.6000 
+newmtl wire_177148027
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
 	illum 2
-	Ka 0.2863 0.9843 0.9529
-	Kd 0.2863 0.9843 0.9529
-	Ks 0.9000 0.9000 0.9000
-	Ke 0.0000 0.0000 0.0000
-	map_Ka azul.jpg
-	map_Kd azul.jpg
+	Ka 0.6941 0.5804 0.1059
+	Kd 0.6941 0.5804 0.1059
+	Ks 0.3500 0.3500 0.3500

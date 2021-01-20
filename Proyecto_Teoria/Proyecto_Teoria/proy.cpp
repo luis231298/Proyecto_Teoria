@@ -144,9 +144,11 @@ int main()
 	Model buzon("resources/objects/Buzon/buzon.obj");
 	Model plantas("resources/objects/planta/planta.obj");
 	Model cuadro("resources/objects/cuadro/cuadro.obj");
+	Model cuarto1("resources/objects/CuartoT/cuarto.obj");
+	Model mesa("resources/objects/Mesa/mesa.obj");
 	/*Model carro("resources/objects/lambo/carroceria.obj");
-	Model mesa("resources/objects/Mesa/mesa.obj");*/
-	/*Model cuarto1("resources/objects/CuartoT/cuarto.obj");
+	*/
+	/*
 	Model cristal("resources/objects/crist/cristal.obj");
 	Model estante("resources/objects/estante/estante.obj");
 	Model puerta("resources/objects/puerta/puerta.obj");*/
@@ -259,12 +261,12 @@ int main()
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
 
-		model = glm::mat4(1.0f);
+		/*model = glm::mat4(1.0f);
 		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::translate(model, glm::vec3(10.0f, -1.5f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
 		staticShader.setMat4("model", model);
-		buzon.Draw(staticShader);
+		buzon.Draw(staticShader);*/
 
 		model = glm::mat4(1.0f);
 		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -275,25 +277,23 @@ int main()
 
 		model = glm::mat4(1.0f);
 		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::translate(model, glm::vec3(10.0f, 7.5f, 0.0f));
+		model = glm::translate(model, glm::vec3(10.0f, 1.5f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
 		staticShader.setMat4("model", model);
 		cuadro.Draw(staticShader);
 
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(10.0f, -1.0f, 0.0f));
-		//model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
-		////model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		//staticShader.setMat4("model", model);
-		//puerta.Draw(staticShader);
+		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(10.0f, -1.5f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
+		staticShader.setMat4("model", model);
+		cuarto1.Draw(staticShader);
 
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(10.0f, -1.5f, 0.0f));
-		//model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
-		////model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		//staticShader.setMat4("model", model);
-		//estante.Draw(staticShader);
-		//buzon.Draw(staticShader);
+		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(10.0f, -1.5f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
+		//model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
+		staticShader.setMat4("model", model);
+		mesa.Draw(staticShader);
 		//carro.Draw(staticShader);
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Termina Escenario
