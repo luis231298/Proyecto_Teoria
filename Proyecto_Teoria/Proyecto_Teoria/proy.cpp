@@ -1,7 +1,7 @@
 /*---------------------------------------------------------*/
 /* ----------------   Práctica 9 --------------------------*/
 /*-----------------    2021-1   ---------------------------*/
-/*------------- Alumno: jose                    ---------------*/
+/*------------- Alumno:Luna Pérez José Luis ---------------*/
 #include <Windows.h>
 #include <glad/glad.h>
 #include <glfw3.h>	//main
@@ -67,9 +67,9 @@ void animate(void)
 {
 	if (animacion)
 	{
-		movAuto_z += 0.03f;
-
-		std::cout << "posicion = " << movAuto_z << " en Z" << std::endl;
+		std::cout << "posicion camara= " << camera.Position.x << " en X" << std::endl;
+		std::cout << "posicion camara= " << camera.Position.y << " en Y" << std::endl;
+		std::cout << "posicion camara= " << camera.Position.z << " en Z" << std::endl;
 	}
 }
 
@@ -88,7 +88,7 @@ int main()
 
 	// glfw window creation
 	// --------------------
-	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Practica 9", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Pokemon Red", NULL, NULL);
 	if (window == NULL)
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
@@ -144,8 +144,14 @@ int main()
 	Model buzon("resources/objects/Buzon/buzon.obj");
 	Model plantas("resources/objects/planta/planta.obj");
 	Model cuadro("resources/objects/cuadro/cuadro.obj");
+	Model cuadro2("resources/objects/cuadro2/cuadro.obj");
 	Model cuarto1("resources/objects/CuartoT/cuarto.obj");
 	Model mesa("resources/objects/Mesa/mesa.obj");
+	Model estante("resources/objects/estan_a/estante.obj");
+	Model basura("resources/objects/basura/basura.obj");
+	Model tele("resources/objects/tele/tele.obj");
+	Model tele2("resources/objects/tele/tele.obj");
+	Model lava("resources/objects/lava/lavabo.obj");
 	/*Model carro("resources/objects/lambo/carroceria.obj");
 	*/
 	/*
@@ -261,12 +267,12 @@ int main()
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
 
-		/*model = glm::mat4(1.0f);
+		model = glm::mat4(1.0f);
 		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::translate(model, glm::vec3(10.0f, -1.5f, 0.0f));
+		model = glm::translate(model, glm::vec3(10.0f, -1.5f, 2.0f));
 		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
 		staticShader.setMat4("model", model);
-		buzon.Draw(staticShader);*/
+		buzon.Draw(staticShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -276,22 +282,65 @@ int main()
 		plantas.Draw(staticShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::translate(model, glm::vec3(10.0f, 1.5f, 0.0f));
+		//model = glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-1.75f, -0.85f, -10.0f));
 		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
 		staticShader.setMat4("model", model);
 		cuadro.Draw(staticShader);
 
+		model = glm::mat4(1.0f);
+		//model = glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(1.65f, -0.85f, -10.0f));
+		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
+		staticShader.setMat4("model", model);
+		cuadro2.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
 		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::translate(model, glm::vec3(10.0f, -1.5f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
 		staticShader.setMat4("model", model);
 		cuarto1.Draw(staticShader);
 
+		model = glm::mat4(1.0f);
+		//model = glm::rotate(glm::mat4(1.0f), glm::radians(360.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-0.67f, -1.5f, -11.15f));
+		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
+		staticShader.setMat4("model", model);
+		estante.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		//model = glm::rotate(glm::mat4(1.0f), glm::radians(360.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-1.4f, -1.5f, -11.15f));
+		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
+		staticShader.setMat4("model", model);
+		lava.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(11.25f, -1.5f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
+		staticShader.setMat4("model", model);
+		basura.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		//model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-0.3f, -1.5f, -11.15f));
+		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
+		staticShader.setMat4("model", model);
+		tele.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		//model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(0.0f, -0.35f, -10.15f));
+		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
+		staticShader.setMat4("model", model);
+		tele.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
 		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::translate(model, glm::vec3(10.0f, -1.5f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
-		//model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
 		staticShader.setMat4("model", model);
 		mesa.Draw(staticShader);
 		//carro.Draw(staticShader);
