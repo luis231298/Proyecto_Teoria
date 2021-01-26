@@ -54,14 +54,19 @@ double	deltaTime = 0.0f,
 //glm::vec3 lightDirection = glm::vec3(-0.2f, -1.0f, -0.3f);
 //Lighting
 glm::vec3 lightPosition(0.0f, 4.0f, -10.0f);
-glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
+glm::vec3 lightDirection(-1.0f, -1.0f, -1.0f);
 
+glm::vec3 lightPosition2(0.0f, -1.5f, -1.0f);
+glm::vec3 lightDirection2(0.0f, -1.0f, 0.0f);
+
+glm::vec3 lightPosition3(0.0f, 0.0f, -10.0f);
+glm::vec3 lightDirection3(-1.0f, -1.0f, -1.0f);
 // posiciones
 float x = 0.0f;
 float y = 0.0f;
 float movAuto_z = 0.0f;
 bool animacion = false;
-
+float pokea = 90.0f;
 
 void animate(void)
 {
@@ -152,6 +157,8 @@ int main()
 	Model tele("resources/objects/tele/tele.obj");
 	Model tele2("resources/objects/tele/tele.obj");
 	Model lava("resources/objects/lava/lavabo.obj");
+	Model poke("resources/objects/poke/poke.obj");
+	Model casar("resources/objects/CasaR/casa.obj");
 	/*Model carro("resources/objects/lambo/carroceria.obj");
 	*/
 	/*
@@ -225,13 +232,29 @@ int main()
 		staticShader.setFloat("pointLight[0].linear", 0.009f);
 		staticShader.setFloat("pointLight[0].quadratic", 0.032f);
 
-		staticShader.setVec3("pointLight[1].position", glm::vec3(0.0, 0.0f, 0.0f));
-		staticShader.setVec3("pointLight[1].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
-		staticShader.setVec3("pointLight[1].diffuse", glm::vec3(0.0f, 0.0f, 0.0f));
-		staticShader.setVec3("pointLight[1].specular", glm::vec3(0.0f, 0.0f, 0.0f));
-		staticShader.setFloat("pointLight[1].constant", 1.0f);
+		staticShader.setVec3("pointLight[1].position", glm::vec3(-1.75f, -0.85f, -10.0f));
+		staticShader.setVec3("pointLight[1].ambient", glm::vec3(0.3f, 0.3f, 0.3f));
+		staticShader.setVec3("pointLight[1].diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setVec3("pointLight[1].specular", glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setFloat("pointLight[1].constant", 1.5f);
 		staticShader.setFloat("pointLight[1].linear", 0.009f);
 		staticShader.setFloat("pointLight[1].quadratic", 0.032f);
+
+		staticShader.setVec3("pointLight[2].position", lightPosition2);
+		staticShader.setVec3("pointLight[2].ambient", glm::vec3(0.3f, 0.3f, 0.3f));
+		staticShader.setVec3("pointLight[2].diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setVec3("pointLight[2].specular", glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setFloat("pointLight[2].constant", 0.8f);//intensidad de la luz
+		staticShader.setFloat("pointLight[2].linear", 0.009f);//cuanto viaja la luz
+		staticShader.setFloat("pointLight[2].quadratic", 0.032f);//cuanto viaja la luz
+
+		staticShader.setVec3("pointLight[3].position", lightPosition3);
+		staticShader.setVec3("pointLight[3].ambient", glm::vec3(0.3f, 0.3f, 0.3f));
+		staticShader.setVec3("pointLight[3].diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setVec3("pointLight[3].specular", glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setFloat("pointLight[3].constant", 0.8f);//intensidad de la luz
+		staticShader.setFloat("pointLight[3].linear", 0.009f);//cuanto viaja la luz
+		staticShader.setFloat("pointLight[3].quadratic", 0.032f);//cuanto viaja la luz
 
 		staticShader.setFloat("material_shininess", 32.0f);
 
@@ -262,14 +285,14 @@ int main()
 		staticShader.setVec3("viewPos", camera.Position);*/
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f));
+		model = glm::translate(model, glm::vec3(0.0f, -1.55f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.2f));
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::translate(model, glm::vec3(10.0f, -1.5f, 2.0f));
+		model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(10.0f, -1.5f, -2.0f));
 		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
 		staticShader.setMat4("model", model);
 		buzon.Draw(staticShader);
@@ -280,6 +303,20 @@ int main()
 		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
 		staticShader.setMat4("model", model);
 		plantas.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(16.0f, -1.5f, 3.0f));
+		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
+		staticShader.setMat4("model", model);
+		plantas.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(15.0f, -1.5f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
+		staticShader.setMat4("model", model);
+		poke.Draw(staticShader);
 
 		model = glm::mat4(1.0f);
 		//model = glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -343,6 +380,13 @@ int main()
 		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
 		staticShader.setMat4("model", model);
 		mesa.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(10.0f, -1.5f, 10.0f));
+		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
+		staticShader.setMat4("model", model);
+		casar.Draw(staticShader);
 		//carro.Draw(staticShader);
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Termina Escenario
@@ -410,7 +454,8 @@ void my_input(GLFWwindow *window)
 		lightPosition.z -= 1.0f;
 	if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS)
 		lightPosition.z += 1.0f;
-	
+	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
+		pokea += 1.0f;
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
