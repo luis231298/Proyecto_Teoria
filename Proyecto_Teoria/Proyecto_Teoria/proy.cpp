@@ -292,12 +292,12 @@ int main()
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
 
-		model = glm::mat4(1.0f);
+		/*model = glm::mat4(1.0f);
 		model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::translate(model, glm::vec3(10.0f, -1.5f, -2.0f));
 		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
 		staticShader.setMat4("model", model);
-		buzon.Draw(staticShader);
+		buzon.Draw(staticShader);*/
 
 		model = glm::mat4(1.0f);
 		model = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -463,6 +463,28 @@ void my_input(GLFWwindow *window)
 		lightPosition.z -= 1.0f;
 	if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS)
 		lightPosition.z += 1.0f;
+
+	//pos camara
+	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS) {//frente
+		camera.Position.x = 0.0f;
+		camera.Position.y = 0.0f;
+		camera.Position.z = 3.0f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {//cuarto bajo
+		camera.Position.x = 0.01f;
+		camera.Position.y = -0.62f;
+		camera.Position.z = -9.71f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {//alberca
+		camera.Position.x = 0.89f;
+		camera.Position.y = 0.0f;
+		camera.Position.z = -9.0f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {//isometrico
+		camera.Position.x = -10.0f;
+		camera.Position.y = 0.2f;
+		camera.Position.z = -0.2f;
+	}
 
 	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
 		if (!tec)
